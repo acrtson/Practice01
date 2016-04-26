@@ -33,7 +33,7 @@ public class Customer {
     }
 
     private double calculateTotalAmount(){
-        return rentals.stream().map(Rental::calculateCharge).reduce(0.0, (a, b) -> a + b);
+        return rentals.stream().map(Rental::getCharge).reduce(0.0, (a, b) -> a + b);
     }
 
     public String statement() {
@@ -45,7 +45,7 @@ public class Customer {
             result.append(TABULATION);
             result.append(rental.getMovie().getTitle());
             result.append(TABULATION);
-            result.append(rental.calculateCharge());
+            result.append(rental.getCharge());
             result.append(BREAK_LINE);
         }
 
